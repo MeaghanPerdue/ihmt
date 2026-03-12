@@ -7,16 +7,17 @@
 # does denoising, unringing, motion correction, computes maps
 # set denoising kernel extent (multiplied) to =< total number of raw volumes (n=12)
 # run as sh run_proc_ihmt.sh subject session
-
+# Updates 12 March 2026:
+### adjusted to run following ANTS N4 bias correction of raw ihMT data, eventually merge to run workflow in a single script
+### to 'scrub' out a bad volume, remove the volume number from -S or -D in the process_ihmt.sh run command
 
 export input=/Volumes/G-DRIVE/preschool_bids
 export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test
 
-# To 'scrub' out artifactual data, remove volume number from -S or -D option as relevant (volumes indexed from 1)
 
 #gunzip ${input}/${1}/${2}/${1}_${2}_ihMT.nii.gz
 
-sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/anat/${1}_${2}_ihMT.nii.gz -o ${output}/${1}/${2}/${1}_${2}_ \
+sh ihmt_proc/process_ihmt.sh -i ${output}/${1}/${2}/${1}_${2}_ihMT_biascorrected.nii.gz -o ${output}/${1}/${2}/${1}_${2}_ \
     -c ihMT,ihMTR,MTRs,MTRd,ihMTRinv,MTRsinv,MTRdinv \
     -n 4 \
     -d 1 \
@@ -28,3 +29,4 @@ sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/anat/${1}_${2}_ihMT.nii.gz -o
     -D 4,6,8,10,12,14 \
     -w 0
 
+# update code to print subject-specific run script for logging so we know when a volume has been scrubbed
