@@ -5,10 +5,12 @@
 # software requirements: ANTS, FSL
 # by Meaghan Perdue, March 2026
 # Work-in-progress, adjustments to parameters may be needed
+## will need to generalize to remove subject-specific paths (replace sub-10007/ses-05 with ${1}/${2} to match current code convention)
 
 # set up paths and directories
 export input=/Volumes/G-DRIVE/preschool_bids
 export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test
+
 
 mkdir -p $output/sub-10007/ses-05/tmp
 
@@ -75,7 +77,23 @@ for i in $(seq -w 0 $((num_volumes - 1))); do
 done
 
 #merge N4 bias corrected volumes into 4D image
-fslmerge -t 
+fslmerge -t $output/sub-10007/ses-05/sub-10007_ses-05_ihMT_biascorrected.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr00.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr01.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr02.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr03.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr04.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr05.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr06.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr07.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr08.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr09.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr10.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr11.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr12.nii.gz \
+    $output/sub-10007/ses-05/tmp/reg_vol_N4corr13.nii.gz 
+
+echo "ihMT volumes bias-corrected and merged! sub-10007_ses-05_ihMT_biascorrected.nii.gz is ready for input to ihmt_proc"
 
 # cleanup tmp folder
 # rm -R $output/sub-10007/ses-05/tmp
