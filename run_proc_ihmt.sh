@@ -10,13 +10,13 @@
 # Updates 12 March 2026:
 ### to 'scrub' out a bad volume, remove the volume number from -S or -D in the process_ihmt.sh run command
 
-export input=/Volumes/G-DRIVE/preschool_bids/
+export input=/Volumes/G-DRIVE/preschool_bids
 export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test_scrubbing
 
 
 #gunzip ${input}/${1}/${2}/${1}_${2}_ihMT.nii.gz
 
-sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/${1}_${2}_ihMT.nii.gz -o ${output}/${1}/${2}/${1}_${2}_ \
+sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/anat/${1}_${2}_ihMT.nii.gz -o ${output}/${1}/${2}/${1}_${2}_ \
     -c ihMT,ihMTR,MTRs,MTRd,ihMTRinv,MTRsinv,MTRdinv \
     -n 4 \
     -d y \
