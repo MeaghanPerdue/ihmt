@@ -11,7 +11,6 @@
 ### adjusted to run following ANTS N4 bias correction of raw ihMT data, eventually merge to run workflow in a single script
 ### to 'scrub' out a bad volume, remove the volume number from -S or -D in the process_ihmt.sh run command
 
-export input=/Volumes/G-DRIVE/preschool_bids
 export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test
 
 
@@ -21,7 +20,7 @@ sh ihmt_proc/process_ihmt.sh -i ${output}/${1}/${2}/${1}_${2}_ihMT_biascorrected
     -c ihMT,ihMTR,MTRs,MTRd,ihMTRinv,MTRsinv,MTRdinv \
     -n 4 \
     -d 1 \
-    -e 4,4,4 \
+    -e 3,3,3 \
     -u 1 \
     -m 1 \
     -R 1 \
