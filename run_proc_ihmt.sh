@@ -10,7 +10,9 @@
 
 
 export input=/Volumes/G-DRIVE/preschool_bids
-export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc2
+export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test
+
+# To 'scrub' out artifactual data, remove volume number from -S or -D option as relevant (volumes indexed from 1)
 
 #gunzip ${input}/${1}/${2}/${1}_${2}_ihMT.nii.gz
 
@@ -22,7 +24,7 @@ sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/anat/${1}_${2}_ihMT.nii.gz -o
     -u 1 \
     -m 1 \
     -R 1 \
-    -S 3,5,7,9,11,13 \
+    -S 3,5,7,9,13 \
     -D 4,6,8,10,12,14 \
     -w 0
 
