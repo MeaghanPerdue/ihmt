@@ -19,7 +19,7 @@ export output=/Volumes/G-DRIVE/preschool_bids/derivatives/ihmt_proc_test_scrubbi
 sh ihmt_proc/process_ihmt.sh -i ${input}/${1}/${2}/anat/${1}_${2}_ihMT.nii.gz -o ${output}/${1}/${2}/${1}_${2}_ \
     -c ihMT,ihMTR,MTRs,MTRd,ihMTRinv,MTRsinv,MTRdinv \
     -n 4 \
-    -d y \
+    -d 1 \
     -e 4,4,4 \
     -u 1 \
     -m 1 \
