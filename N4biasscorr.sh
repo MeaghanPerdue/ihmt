@@ -70,12 +70,12 @@ for i in $(seq -w 0 $((num_volumes - 1))); do
         cp "$regvol" "${output}/sub-10007/ses-05/tmp/reg_vol_N4corr${i}.nii.gz"
         continue
     fi
-    
-    fslmaths $regvol -div $output/sub-10007/ses-05/tmp/reg_vol00_BiasField.nii.gz  $output/sub-10007/ses-05/tmp/reg_vol${i}_N4corr.nii.gz
+
+    fslmaths $regvol -div $output/sub-10007/ses-05/tmp/reg_vol00_BiasField.nii.gz  $output/sub-10007/ses-05/tmp/reg_vol_N4corr${i}.nii.gz
 done
 
-#
-
+#merge N4 bias corrected volumes into 4D image
+fslmerge -t 
 
 # cleanup tmp folder
 # rm -R $output/sub-10007/ses-05/tmp
