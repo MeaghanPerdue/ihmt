@@ -5,7 +5,9 @@ Meaghan Perdue 18 July 2025
 ihmt_proc: <https://github.com/lsoustelle/ihmt_proc> \
 ihMT_MoCo (license agreement required): <https://crmbm.univ-amu.fr/ihmt-moco/> \
 ANTS \
-FSL 
+FSL \
+
+*Install ihmt_proc within this codebase, with ihMT_MoCo within ihmt_proc sub-directory*
 
 **Preschool IHMT Volumes Acquisition Order: (starts at 1 for inputs)**
 1: Reference ihMTR/MTR \
